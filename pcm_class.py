@@ -113,7 +113,7 @@ class IDF_EDITING:
         pos, mydict = self.add_pcm_construction()
 
         ## Updating the layer numbers after PCM from intial small envelope_words dictionary
-        # for _pcm_layer ! layer 3,counter = 3+1 = 4
+        # for _pcm_layer !layer 3,counter = 3+1 = 4
         counter =  int(self.pcm_layer.split(" ")[-1]) + 1 
         layer = counter - 1 # ! layer n, n-1
 
@@ -132,8 +132,8 @@ class IDF_EDITING:
                 else:
                     # If '!- Layer ' is not found, keep the original value
                     new_val = val
+        
         ## Finally updating the mydict dictionary with envelop_words dictionary with matched key
-
         for key, val in self.mydict.items():
             if key in new_words:
                 self.mydict[key] = new_words[key]  # Update the value for the matching key
@@ -165,7 +165,7 @@ class IDF_EDITING:
         with open(file01, "w") as f:
             for value in idf_final_dict.values():
                 f.write(f"{value}\n")  # Write each value on a new line
-            ## Appending these mandatory PCM properties to copied IDF file_path.
+        ## Appending these mandatory PCM properties to copied IDF file_path.
         with open(file01, 'a') as f:
             f.write(self.pcm_block)  # Write each value on a new line
 
